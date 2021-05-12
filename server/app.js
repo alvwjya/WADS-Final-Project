@@ -4,11 +4,6 @@ const mongoose =require('mongoose')
 const port = 4000
 const {MONGOURI} = require('./keys')
 
-require('./models/users')
-
-app.use(express.json())
-app.use(require('./routes/auth'))
-
 
 const customMiddleware = (req,res,next)=> {
     console.log("middleware executed")
@@ -33,6 +28,11 @@ mongoose.connection.on('connected',()=> {
 mongoose.connection.on('error',(err)=> {
     console.log("error", err)
 } )
+
+require('./models/users')
+
+app.use(express.json())
+app.use(require('./routes/auth'))
 
 app.get('/', (req,res) => {
     console.log("home page")
