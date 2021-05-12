@@ -17,7 +17,7 @@ module.exports = (req,res,next) => {
         const {_id} = payload
         Users.findById(_id).then(userdata => {
             req.Users = userdata
+            next()
         })
-        next() 
     })
 }

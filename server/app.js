@@ -30,9 +30,11 @@ mongoose.connection.on('error',(err)=> {
 } )
 
 require('./models/users')
+require('./models/post')
 
 app.use(express.json())
 app.use(require('./routes/auth'))
+app.use(require('./routes/post'))
 
 app.get('/', (req,res) => {
     console.log("home page")
