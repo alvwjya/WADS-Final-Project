@@ -3,6 +3,8 @@ const router = express.Router()
 const mongoose = require('mongoose')
 const Users = mongoose.model("Users")
 const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
+const {JWT_SECRET} = require('../keys')
 
 router.get('/',(req,res) => {
     res.send("Hello")
@@ -17,7 +19,7 @@ router.post('/signup',(req,res) =>{
     Users.findOne({username: username})
     .then ((savedUser) => {
         if (savedUser){
-            return res.status(422).json({error:"username already exist. Please find another pne!"})
+            return res.status(422).json({error:"username already exist. Please find another one!"})
         }
 
         //put bigger number if you want it to become more secure
@@ -43,6 +45,31 @@ router.post('/signup',(req,res) =>{
 
         })
         
-
+router.post('/signin', (req,res) => {
+    const {email,password} = req.body
+    if (!email || !password){
+        return res.status(422).json({error:"please add email or password"})
+    }
+    Users.findOne({email:email})
+    .then(savedUser => {
+        if (!savedUser) {
+            return res.status(422).json({error:"Invalid email or password"})
+        }
+        bcrypt.compare(password, savedUser.password)
+        .then(doMatch => {
+            if (doMatch) {
+                //res.json({message:"successfully signed in"})
+                const token = jwt.sign({_id:savedUser._id}, JWT_SECRET)
+                res.json({token})
+            }
+            else {
+                return res.status(422).json({error:"Invalid email or password"})
+            }
+        })
+        .catch(err=> {
+            console.log(err)
+        })
+    })
+})
 
 module.exports = router
