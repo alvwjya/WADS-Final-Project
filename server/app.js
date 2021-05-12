@@ -6,6 +6,10 @@ const {MONGOURI} = require('./keys')
 
 require('./models/users')
 
+app.use(express.json())
+app.use(require('./routes/auth'))
+
+
 const customMiddleware = (req,res,next)=> {
     console.log("middleware executed")
     next()
