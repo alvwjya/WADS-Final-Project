@@ -10,11 +10,11 @@ router.post('/createpost',requireLogin, (req,res) => {
     if (!title || !body) {
         return res.status(422).json({error:"please add all the fields"})
     }
-    req.user.password = undefined
+    req.Users.password = undefined
     const post = new Post({
         title,
         body,
-        postedBy:req.user
+        postedBy:req.Users
     })
     post.save().then(result => {
         res.json({post:result})
