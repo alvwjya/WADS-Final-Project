@@ -10,7 +10,7 @@ function Gallery() {
     const [items, setItems] = useState([]);
 
     const fetchItems = async () => {
-        const data = await fetch('http://www.omdbapi.com/?apikey=a3e014fb&s=harry potter');
+        const data = await fetch('http://www.omdbapi.com/?apikey=a3e014fb&s=transformers');
         const items = await data.json();
         console.log(items.Search);
         setItems(items.Search);
@@ -19,21 +19,7 @@ function Gallery() {
 
     return (
         <div>
-
-            <div className="float-left">
-                <Link to='/'>
-                    <button className="btn btn-outline-light ml-5 mt-3" >Back to Home</button>
-                </Link>
-            </div>
-
-            {items.map(item => (
-                <h1 key={item.imdbID}>
-                    <Link to={`/gallery/${item.imdbID}`}>{item.Title}</Link>
-                </h1>
-            ))}
-
-
-            <div className="row mt-5 mr-5 ml-5">
+            <div className="row">
                 {items.map(item => (
                     <div className="col-sm-2">
                         <div className="card bg-dark text-white" >

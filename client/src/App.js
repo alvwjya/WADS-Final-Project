@@ -5,14 +5,14 @@ import newPost from './components/newPost/newPost';
 import signIn from './components/credential/signIn';
 import signUp from './components/credential/signUp';
 import postDetail from './components/postDetail/postDetail';
-import gallery from './components/postDetail/gallery';
-
+import Gallery from './components/postDetail/gallery';
 
 
 function App() {
 
 
     return (
+
         <div className="App bg-secondary">
             <Switch>
                 <Route path="/" exact component={Home} />
@@ -20,7 +20,6 @@ function App() {
                 <Route path='/signin' exact component={signIn} />
                 <Route path='/signup' exact component={signUp} />
                 <Route path='/gallery/:id' component={postDetail} />
-                <Route path='/gallery' exact component={gallery} />
             </Switch>
         </div>
 
@@ -30,7 +29,6 @@ function App() {
 
     );
 }
-
 
 const Home = () => (
 
@@ -85,41 +83,10 @@ const Home = () => (
             </ul>
         </nav>
 
-
-
-        <div className="row mt-5 mr-5 ml-5">
-            <div className="col-sm-2">
-                <div className="card bg-dark text-white" >
-                    <img src="https://media.suara.com/pictures/480x260/2020/12/04/63125-meme-menjelang-akhir-tahun-2020.jpg" className="card-img-top" alt="..." />
-                    <div className="card-body">
-                        <h6 className="card-title">Me when I try to sleep</h6>
-                        <a href="/gallery" className="stretched-link"></a>
-                        <div className="container ml-2 mr-2">
-
-                            <div className="row">
-                                <div className="col-sm">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#bababa" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19V6M5 12l7-7 7 7" /></svg>
-                                    <p><small>10k</small></p>
-                                </div>
-                                <div className="col-sm">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#bababa" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                                    <p><small>5k</small></p>
-                                </div>
-                                <div className="col-sm">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#bababa" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                                    <p><small>1.5k</small></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-
-
+        <Gallery />
     </div>
+
+
 );
 
 
