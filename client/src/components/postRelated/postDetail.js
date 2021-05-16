@@ -23,7 +23,7 @@ function ItemDetail({match}) {
         
         <div>
             <div className="float-left">
-                <Link to='/gallery'>
+                <Link to='/'>
                     <button className="btn btn-outline-light ml-5 mt-3" >Back to Home</button>
                 </Link>
                 </div>

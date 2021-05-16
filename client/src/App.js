@@ -4,9 +4,9 @@ import { Switch, Route, Link } from 'react-router-dom';
 import newPost from './components/newPost/newPost';
 import signIn from './components/credential/signIn';
 import signUp from './components/credential/signUp';
-import postDetail from './components/postDetail/postDetail';
-import Gallery from './components/postDetail/gallery';
-
+import postDetail from './components/postRelated/postDetail';
+import Gallery from './components/postRelated/gallery';
+import profile from './components/profilePage/profilePage';
 
 function App() {
     return (
@@ -18,6 +18,7 @@ function App() {
                 <Route path='/signin' exact component={signIn} />
                 <Route path='/signup' exact component={signUp} />
                 <Route path='/gallery/:id' component={postDetail} />
+                <Route path='/pagehehe' component={profile} />
             </Switch>
         </div>
     );
