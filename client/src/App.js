@@ -9,8 +9,6 @@ import Gallery from './components/postDetail/gallery';
 
 
 function App() {
-
-
     return (
 
         <div className="App bg-secondary">
@@ -22,17 +20,10 @@ function App() {
                 <Route path='/gallery/:id' component={postDetail} />
             </Switch>
         </div>
-
-
-
-
-
     );
 }
 
 const Home = () => (
-
-
     <div className="bg-secondary">
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
 
@@ -85,8 +76,6 @@ const Home = () => (
 
         <Gallery />
     </div>
-
-
 );
 
 
