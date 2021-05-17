@@ -1,7 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Gallery } from '../postRelated/gallery';
 
 function profile() {
+    return [
+        navbar(),
+        profileDetails(),
+        Gallery("http://www.omdbapi.com/?apikey=a3e014fb&s=transformers")
+    ];
+
+}
+
+function profileDetails() {
+    return(
+    <div className = "d-flex flex-row pt-5 pb-5 justify-content-around text-white bg-dark">
+        <div>
+            <img style ={{width:"160px", height:"160px", borderRadius:"80px"}} src = "https://images.fastcompany.net/image/upload/w_596,c_limit,q_auto:best,f_auto/fc/3021752-inline-i-1-why-square-designed-its-new-offices-to-work-like-a-city.jpg"/>
+        </div>
+        <div className = "d-flex flex-column align-self-center">
+            <h1><strong>Alvian Wijaya</strong></h1>
+                <h5>40 posts</h5>
+        </div>
+    </div>
+    );
+
+}
+
+function navbar() {
     return (
         <div className="bg-secondary">
             <nav className="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
@@ -52,10 +78,9 @@ function profile() {
                     </li>
                 </ul>
             </nav>
-
         </div>
     );
-
 }
+
 
 export default profile;
