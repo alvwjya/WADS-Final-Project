@@ -12,14 +12,20 @@ router.get('/', (req, res) => {
 });
 
 
+
 router.post('/signup', (req, res) => {
     const { username, email, password } = req.body;
     if (!email || !password || !username) {
         res.json({ error: "Please fill in all the required data" });
     }
-    Users.find({ usernemame: username, email: email })
+
+    if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)) {
+        return res.json({ error: "Invalid email!" });
+    }
+    
+    Users.find({ $or: [{ username: username }, { email: email }] })
         .then((savedUser) => {
-            if (savedUser) {
+            if (savedUser.length > 0) {
                 return res.status(422).json({ error: "Username or email unavailable!" });
             }
 
