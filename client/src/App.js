@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Switch, Route, Link } from 'react-router-dom';
-import newPost from './components/newPost/newPost';
+import newPost from './components/postRelated/newPost';
 import signIn from './components/credential/signIn';
 import signUp from './components/credential/signUp';
 import postDetail from './components/postRelated/postDetail';

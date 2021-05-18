@@ -25,7 +25,7 @@ const signUp = () => {
 
                             </div>
                             <div className="card-body">
-                                <h5 className="card-title text-center">Register</h5>
+                                <h5 className="card-title text-center">Sign Up</h5>
                                 <form className="form-signin">
                                     <div className="form-label-group">
                                         <input type="text" id="inputUserame" className="form-control" placeholder="Username" required autofocus />
