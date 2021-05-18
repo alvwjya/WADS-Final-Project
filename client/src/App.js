@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Switch, Route, Link } from 'react-router-dom';
 import newPost from './components/postRelated/newPost';
 import signIn from './components/credential/signIn';
-import signUp from './components/credential/signUp';
+import SignUp from './components/credential/signUp';
 import postDetail from './components/postRelated/postDetail';
 import { Gallery } from './components/postRelated/gallery';
 import profile from './components/profilePage/profilePage';
@@ -22,7 +22,7 @@ function App() {
                 <Route path="/" exact component={Home} />
                 <Route path="/newpost" exact component={newPost} />
                 <Route path='/signin' exact component={signIn} />
-                <Route path='/signup' exact component={signUp} />
+                <Route path='/signup' exact component={SignUp} />
                 <Route path='/gallery/:id' component={postDetail} />
                 <Route path='/pagehehe' component={profile} />
             </Switch>
