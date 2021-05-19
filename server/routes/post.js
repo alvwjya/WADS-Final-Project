@@ -7,7 +7,7 @@ const Post = mongoose.model("Post");
 
 router.get('/allpost', requireLogin, (req, res) => {
     Post.find() //get all the post 
-        .populate("postedBy", "_id name") // to get info about people who posted the post
+        .populate("username", "_id username").sort({ date: 1 }) // to get info about people who posted the post
         .then(posts => {
             res.json({ posts: posts })
         })
