@@ -12,13 +12,14 @@ export const UserContext = createContext();
 
 
 
+
 const Routing = () => {
     const history = useHistory();
     const { state, dispatch } = useContext(UserContext)
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem("user"));
         if (user) {
-            dispatch({type:"USER", payload: user})
+            dispatch({ type: "USER", payload: user })
             history.push('/');
         } else {
             history.push('/signin');
@@ -41,8 +42,9 @@ const Routing = () => {
 function App() {
     const [state, dispatch] = useReducer(reducer, initialState)
     return (
+
         <UserContext.Provider value={{ state, dispatch }}>
-            <div className="bg-secondary">
+            <div>
                 <BrowserRouter>
                     <Routing />
                 </BrowserRouter>
@@ -53,15 +55,19 @@ function App() {
 
 
 function Home() {
-    return [
-        navbar()
-        , Gallery("/allpost")
-    ];
+    return (
+        <div>
+            {navbar()}
+            {Gallery("/allpost")}
+        </div>
+
+
+    );
 }
 
 function navbar() {
     return (
-        <div className="bg-secondary">
+
             <nav className="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
                 <div className="container-fluid">
 
@@ -110,7 +116,7 @@ function navbar() {
                     </ul>
                 </div>
             </nav>
-        </div>
+
     );
 }
 

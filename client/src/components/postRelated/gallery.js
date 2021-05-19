@@ -27,13 +27,13 @@ export function Gallery(link) {
         <div className="container-md">
             <div className="row mt-5">
                 {items.map(item => (
-                    <div className="col-md-3">
+                    <div className="col-md-3"  key={item._id}>
                         <div className="card bg-dark text-white mb-2" >
                             <img src={item.photo} className="card-img-top" alt="..." />
                             <div className="card-body">
-                                <p className="card-title" key={item._id}><small><strong>
+                                <p className="card-title"><small><strong>
                                     {item.title} </strong></small></p>
-                                <a href={`/gallery/${item.imdbID}`} className="stretched-link"></a>
+                                <a href={`/${item._id}`} className="stretched-link"></a>
 
                                 <div className="d-flex justify-content-between">
                                     <div className="d-flex flex-row">

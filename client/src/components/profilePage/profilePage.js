@@ -7,7 +7,7 @@ function profile() {
     return [
         navbar(),
         profileDetails(),
-        Gallery("http://www.omdbapi.com/?apikey=a3e014fb&s=transformers")
+        //Gallery("http://www.omdbapi.com/?apikey=a3e014fb&s=transformers")
     ];
 
 }
