@@ -9,24 +9,30 @@ export function Gallery(link) {
     const [items, setItems] = useState([]);
 
     const fetchItems = async () => {
+
         //const data = await fetch('http://www.omdbapi.com/?apikey=a3e014fb&s=transformers');
-        const data = await fetch(link);
+        const data = await fetch(link, {
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("jwt")
+            }
+        });
         const items = await data.json();
-        console.log(items.Search);
-        setItems(items.Search);
+        console.log(items.posts);
+        setItems(items.posts);
     }
 
 
     return (
+        
         <div className="container-md">
             <div className="row mt-5">
                 {items.map(item => (
                     <div className="col-md-3">
                         <div className="card bg-dark text-white mb-2" >
-                            <img src={item.Poster} className="card-img-top" alt="..." />
+                            <img src={item.photo} className="card-img-top" alt="..." />
                             <div className="card-body">
-                                <p className="card-title" key={item.imdbID}><small><strong>
-                                    {item.Title} </strong></small></p>
+                                <p className="card-title" key={item._id}><small><strong>
+                                    {item.title} </strong></small></p>
                                 <a href={`/gallery/${item.imdbID}`} className="stretched-link"></a>
 
                                 <div className="d-flex justify-content-between">

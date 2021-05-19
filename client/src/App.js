@@ -55,7 +55,7 @@ function App() {
 function Home() {
     return [
         navbar()
-        , Gallery("http://www.omdbapi.com/?apikey=a3e014fb&s=harry potter")
+        , Gallery("/allpost")
     ];
 }
 
