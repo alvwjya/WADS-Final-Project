@@ -16,17 +16,17 @@ router.get('/', (req, res) => {
 router.post('/signup', (req, res) => {
     const { username, email, password } = req.body;
     if (!email || !password || !username) {
-        res.json({ error: "Please fill in all the required data" });
+        return res.status(422).json({ error: "Please fill in all the required data" });
     }
 
-    if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)) {
-        return res.json({ error: "Invalid email!" });
+    else if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)) {
+        return res.status(422).json({ error: "Invalid email address." });
     }
-    
+
     Users.find({ $or: [{ username: username }, { email: email }] })
         .then((savedUser) => {
             if (savedUser.length > 0) {
-                return res.status(422).json({ error: "Username or email unavailable!" });
+                return res.status(422).json({ error: "Sorry, username or email unavailable." });
             }
 
             //put bigger number if you want it to become more secure
@@ -39,7 +39,7 @@ router.post('/signup', (req, res) => {
                     });
                     user.save()
                         .then(user => {
-                            res.json({ message: "Account created successfully" });
+                            return res.status(200).json({ message: "Account created successfully." });
                         })
                         .catch(err => {
                             console.log(err);
@@ -55,28 +55,38 @@ router.post('/signup', (req, res) => {
 router.post('/signin', (req, res) => {
     const { email, password } = req.body;
     if (!email || !password) {
-        return res.status(422).json({ error: "Please enter email or password" });
+        return res.status(422).json({ error: "Please fill in all the required data." });
     }
-    Users.findOne({ email: email })
-        .then(savedUser => {
-            if (!savedUser) {
-                return res.status(422).json({ error: "Invalid email or password" });
-            }
-            bcrypt.compare(password, savedUser.password)
-                .then(doMatch => {
-                    if (doMatch) {
-                        //res.json({message:"successfully signed in"})
-                        const token = jwt.sign({ _id: savedUser._id }, JWT_SECRET);
-                        res.json({ token });
-                    }
-                    else {
-                        return res.status(422).json({ error: "Invalid email or password" });
-                    }
-                })
-                .catch(err => {
-                    console.log(err);
-                });
-        });
+
+    else if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)) {
+        return res.status(422).json({ error: "Invalid email address." });
+    }
+
+    else {
+        Users.findOne({ email: email })
+            .then(savedUser => {
+                if (!savedUser) {
+                    return res.status(401).json({ error: "The email you entered doesn't belong to an account. Please check your email and try again." });
+                }
+
+                bcrypt.compare(password, savedUser.password)
+                    .then(doMatch => {
+                        if (doMatch) {
+                            const token = jwt.sign({ _id: savedUser._id }, JWT_SECRET);
+                            const { _id, username, email } = savedUser
+                            return res.status(200).json({ token, user: { _id, username, email } });
+                        }
+                        else {
+                            return res.status(401).json({ error: "Sorry, your password was incorrect." });
+
+                        }
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
+            });
+    }
+
 })
 
 module.exports = router

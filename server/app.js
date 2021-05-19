@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const cors = require('cors')
+
 const mongoose = require('mongoose')
 const port = 4000
 const { MONGOURI } = require('./keys')
@@ -11,7 +11,7 @@ const customMiddleware = (req, res, next) => {
     next();
 }
 
-app.use(cors())
+
 //It is used to all page
 //app.use(customMiddleware)
 mongoose.connect(MONGOURI, {
