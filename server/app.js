@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-
 const mongoose = require('mongoose')
 const port = 4000
 const { MONGOURI } = require('./keys')
@@ -47,5 +46,5 @@ app.get('/about', customMiddleware, (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log("server is running on", port)
+    console.log("server is running on port: ", port)
 })

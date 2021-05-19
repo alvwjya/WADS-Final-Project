@@ -6,17 +6,23 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    body: {
+    tag: {
         type: String,
-        required: true
+    },
+    caption: {
+        type: String
     },
     photo: {
         type: String,
-        default: "No photo"
+        required: true
     },
-    postedBy: {
+    username: {
         type: ObjectId,
         ref: "Users"
+    },
+    date: {
+        type: Date,
+        default: new Date()
     }
 })
 
