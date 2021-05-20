@@ -1,0 +1,13 @@
+
+.setSize {
+    max-height: 600px;
+    max-width: 800px;
+    background: grey;
+}
+
+rect.btn {
+    stroke:#fff;
+    fill:#fff;
+    fill-opacity:0;
+    stroke-opacity:0;
+  }

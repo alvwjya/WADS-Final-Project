@@ -48,7 +48,7 @@ function SignUp() {
                             </div>
                             <div className="card-body">
                                 <div className="d-flex justify-content-center mb-3">
-                                    <img src='redgram_logo.png' height="80" />
+                                    <img src='https://res.cloudinary.com/redgram/image/upload/v1621519082/Untitled-2_mbkmnv.png' height="80" />
                                 </div>
                                 <div className="form-label-group">
                                     <input type="text" id="inputUserame"

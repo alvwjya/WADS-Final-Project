@@ -1,33 +1,37 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Gallery } from '../postRelated/gallery';
 
-function profile() {
-    return [
-        navbar(),
-        profileDetails(),
-        //Gallery("http://www.omdbapi.com/?apikey=a3e014fb&s=transformers")
-    ];
+function Profile() {
 
-}
-
-function profileDetails() {
-    return(
-    <div className = "d-flex flex-row pt-5 pb-5 justify-content-around text-white bg-dark">
+    return (
         <div>
-            <img style ={{width:"160px", height:"160px", borderRadius:"80px"}} src = "https://images.fastcompany.net/image/upload/w_596,c_limit,q_auto:best,f_auto/fc/3021752-inline-i-1-why-square-designed-its-new-offices-to-work-like-a-city.jpg"/>
+            {NavBar()}
+            {profileDetails()}
+            {Gallery("/mypost")}
         </div>
-        <div className = "d-flex flex-column align-self-center">
-            <h1><strong>Alvian Wijaya</strong></h1>
-                <h5>40 posts</h5>
-        </div>
-    </div>
     );
 
 }
 
-function navbar() {
+function profileDetails() {
+    return (
+        <div className="d-flex flex-row pt-5 pb-5 justify-content-around text-white bg-dark">
+            <div>
+                <img style={{ width: "160px", height: "160px", borderRadius: "80px" }} src="https://images.fastcompany.net/image/upload/w_596,c_limit,q_auto:best,f_auto/fc/3021752-inline-i-1-why-square-designed-its-new-offices-to-work-like-a-city.jpg" />
+            </div>
+            <div className="d-flex flex-column align-self-center">
+                <h1><strong>Alvian Wijaya</strong></h1>
+                <h5>40 posts</h5>
+            </div>
+        </div>
+    );
+
+}
+
+function NavBar() {
+
     return (
         <div className="bg-secondary">
             <nav className="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
@@ -36,7 +40,7 @@ function navbar() {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <a className="navbar-brand mx-auto">
-                    <img src='redgram_logo.png' height="30" />
+                    <img src='https://res.cloudinary.com/redgram/image/upload/v1621519082/Untitled-2_mbkmnv.png' height="30" />
                 </a>
                 <div className="collapse navbar-collapse" id="collapse_target">
 
@@ -66,21 +70,10 @@ function navbar() {
                     </form>
 
                 </div>
-
-                <ul className="navbar-nav  ml-2 mr-2">
-                    <li className="form-inline">
-                        <Link to='signin'>
-                            <button className="btn btn-outline-light mr-2 mt-1 mb-1" >Sign In</button>
-                        </Link>
-                        <Link to='signup'>
-                            <button className="btn btn-primary mt-1 mb-1" >Sign Up</button>
-                        </Link>
-                    </li>
-                </ul>
             </nav>
         </div>
     );
 }
 
 
-export default profile;
+export default Profile;
