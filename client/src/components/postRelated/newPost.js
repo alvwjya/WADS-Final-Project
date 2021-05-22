@@ -103,7 +103,7 @@ const NewPost = () => {
                                     <button className="btn btn-lg btn-outline-primary"
                                         onClick={() => postDetails()}
                                     >Post</button>
-                                    <button id="jeng" className="btn btn-lg btn-outline-primary">Test</button>
+                                    
                                 </div>
                             </div>
                         </div>

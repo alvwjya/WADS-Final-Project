@@ -46,7 +46,7 @@ const SignIn = () => {
                         <div className="card card-signin my-5 bg-dark text-white">
                             <div className="card-body">
                                 <div className="d-flex justify-content-center mb-5">
-                                    <img src='https://res.cloudinary.com/redgram/image/upload/v1621519082/Untitled-2_mbkmnv.png' height="80" />
+                                    <img src='https://res.cloudinary.com/redgram/image/upload/v1621665209/Untitled-2_c9icpj.png' height="80" />
                                 </div>
                                 <div className="form-label-group">
                                     <input type="email" id="inputEmail"
