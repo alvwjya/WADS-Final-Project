@@ -6,7 +6,7 @@ const requireLogin = require('../middleware/requireLogin');
 const Post = mongoose.model("Post");
 
 router.get('/allpost', requireLogin, (req, res) => {
-    Post.find().sort({ date: 1 }) //get all the post 
+    Post.find().sort({ date: -1 }) //get all the post 
         .populate("username", "_id username") // to get info about people who posted the post
         .then(posts => {
             res.json({ posts: posts })
