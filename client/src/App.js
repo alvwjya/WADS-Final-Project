@@ -124,6 +124,14 @@ function NavBar() {
         }
     }
 
+
+
+    function showProfile() {
+        const { href } = window.location;
+        window.location.href = `/profile/${JSON.parse(localStorage.getItem("user"))._id}`;
+
+    }
+
     return (
 
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
@@ -155,24 +163,14 @@ function NavBar() {
                             fetchUsers(e.target[0].value)
                         }}>
                         <input type="text" className="form-control" placeholder="#tags, @users" />
-                        {/*<span className="input-group-append">
-                                <button className="btn bg-transparent border border-left-0" onClick={() => fetchUsers(document.getElementById("searchInput"))} type="button" id="searchButton">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" className="bi bi-search" viewBox="0 0 16 20">
-                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                                    </svg>
-                                </button>
-                            </span>*/}
-
                     </form>
-
                 </div>
-
                 <ul className="navbar-nav  ml-2 mr-2">
                     <li className="form-inline">
-                        <a href={`/profile/${JSON.parse(localStorage.getItem("user"))._id}`} className="streched-link">
-                            <button className="btn btn-outline-light mt-1 mb-1 mr-3" >Profile</button>
-                        </a>
-
+                        <button onClick={() =>{
+                            showProfile();
+                        }}
+                        className="btn btn-outline-light mt-1 mb-1 mr-3" >Profile</button>
                         <button className="btn btn-outline-danger mt-1 mb-1"
                             onClick={() => {
                                 localStorage.clear();
