@@ -1,8 +1,8 @@
-const express = require('express')
-const app = express()
-const mongoose = require('mongoose')
-const port = 4000
-const { MONGOURI } = require('./keys')
+const express = require('express');
+const app = express();
+const mongoose = require('mongoose');
+const port = 4000;
+const { MONGOURI } = require('./keys');
 
 
 const customMiddleware = (req, res, next) => {
@@ -20,31 +20,35 @@ mongoose.connect(MONGOURI, {
 });
 
 mongoose.connection.on('connected', () => {
-    console.log("connected to mongo")
+    console.log("Connected to MongoDB");
 });
 
 mongoose.connection.on('error', (err) => {
-    console.log("error", err)
+    console.log("error", err);
 })
 
-require('./models/users')
-require('./models/post')
+
 
 app.use(express.json())
-app.use(require('./routes/auth'))
-app.use(require('./routes/post'))
+require('./models/users');
+require('./models/post');
+app.use(require('./routes/auth'));
+app.use(require('./routes/post'));
+app.use(require('./routes/user'));
+app.use(require('./routes/search'));
+
 
 app.get('/', (req, res) => {
-    console.log("home page")
-    res.send("Hello world")
+    console.log("Welcome to Redgram");
+    res.send("Hello World!!!");
 })
 
 //specific page middleware 
 app.get('/about', customMiddleware, (req, res) => {
-    console.log("about page")
-    res.send("About")
+    console.log("about page");
+    res.send("About");
 })
 
 app.listen(port, () => {
-    console.log("server is running on port: ", port)
+    console.log("Server is running on port: ", port);
 })

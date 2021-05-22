@@ -51,6 +51,7 @@ router.get('/mypost', requireLogin, (req, res) => {
 router.get('/postdetail', requireLogin, (req, res) => {
     Post.findOne({ _id: req.headers.p })
         .populate("username", "_id username")
+        .populate("comments.username", "_id username")
         .then(array => {
             res.json({ post: array })
         })
@@ -166,5 +167,62 @@ router.put('/dislike', requireLogin, (req, res) => {
 })
 
 
+router.put('/comment', requireLogin, (req, res) => {
+    const comment = {
+        comment: req.body.comment,
+        username: req.Users._id
+    }
+
+    if (!comment.comment || !comment.username) {
+        return res.status(422).json({ message: "Unable to comment, make sure to fill all the fields" });
+    }
+    Post.findByIdAndUpdate(req.body.postId, {
+        $push: { comments: comment }
+    }, {
+        new: true
+    }).populate("comments.username", "_id username")
+        .populate("username", "_id username")
+        .exec((err, result) => {
+            if (err) {
+                return res.status(422).json({ error: err })
+            } else {
+                res.json(result)
+            }
+        })
+})
+
+
+router.delete('/deletepost/:postId', requireLogin, (req, res) => {
+    Post.findById(req.params.postId)
+        .populate("username", "_id")
+        .exec((err, post) => {
+            if (err || !post) {
+                return res.status(422).json({ error: err })
+            }
+            else if (post.username._id.toString() === req.Users.id.toString()) {
+                post.remove()
+                    .then(
+                        res.status(200).json({ message: "Post Deleted." })
+                    ).catch(err => {
+                        res.statuc(401).json({ error: err })
+                    })
+            }
+            else {
+                return res.status(401).json({ error: "Unauthorized to delete post." })
+            }
+        })
+});
+
+
+router.delete('/deletecomment/:commentId', requireLogin, (req, res) => {
+    Post.findOneAndUpdate({ _id: req.headers.p },
+        { $pull: { comments: { _id: req.params.commentId } } })
+        .then(result => {
+            //console.log(result.comments[0]._id)
+            return res.status(200).json({ result })
+        }).catch(err => {
+            return res.status(402)
+        })
+});
 
 module.exports = router;
