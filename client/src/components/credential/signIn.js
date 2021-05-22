@@ -1,56 +1,79 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import * as reactBootStrap from 'react-bootstrap';
 import './signIn.css';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { UserContext } from '../../App'
 
 //https://startbootstrap.com/snippets/login
 //https://jsfiddle.net/e0tbqp9L/1/
 
-const signIn = () => {
+const SignIn = () => {
+    const { state, dispatch } = useContext(UserContext);
+    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const history = useHistory();
+
+    const postData = () => {
+        fetch("/signin", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email,
+                password
+            })
+        }).then(res => res.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    localStorage.setItem("jwt", data.token);
+                    localStorage.setItem("user", JSON.stringify(data.user));
+                    dispatch({ type: "USER", payload: data.user });
+                    history.push("/");
+                }
+            }).catch(err => {
+                console.log(err)
+            });
+    }
+
     return (
-        <div className='signIn'>
-            <div className="float-left">
-                <Link to='/'>
-                    <button className="btn btn-outline-light ml-5 mt-3" >Back to Home</button>
-                </Link>
-            </div>
-            
+        <div className='signIn fill-window'>
             <div className="container">
                 <div className="row">
                     <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
-                        <div className="card card-signin my-5">
+                        <div className="card card-signin my-5 bg-dark text-white">
                             <div className="card-body">
-                                <h5 className="card-title text-center">Sign In</h5>
-                                <form className="form-signin">
-                                    <div className="form-label-group">
-                                        <input type="email" id="inputEmail" className="form-control" placeholder="Email address" required autofocus />
-                                        <label for="inputEmail">Email address</label>
-                                    </div>
+                                <div className="d-flex justify-content-center mb-5">
+                                    <img src='https://res.cloudinary.com/redgram/image/upload/v1621665209/Untitled-2_c9icpj.png' height="80" />
+                                </div>
+                                <div className="form-label-group">
+                                    <input type="email" id="inputEmail"
+                                        value={email} onChange={(e) => setEmail(e.target.value)}
+                                        className="form-control" placeholder="Email address" />
+                                    <label htmlFor="inputEmail">Email address</label>
+                                </div>
 
-                                    <div className="form-label-group">
-                                        <input type="password" id="inputPassword" className="form-control" placeholder="Password" required />
-                                        <label for="inputPassword">Password</label>
-                                    </div>
-
-                                    <div className="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" className="custom-control-input" id="customCheck1" />
-                                        <label className="custom-control-label" for="customCheck1">Remember password</label>
-                                    </div>
-                                    <button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
-                                    <hr className="my-4" />
-                                    <button className="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign in with Google</button>
-                                    <button className="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button>
-                                </form>
+                                <div className="form-label-group">
+                                    <input type="password" id="inputPassword"
+                                        value={password} onChange={(e) => setPassword(e.target.value)}
+                                        className="form-control" placeholder="Password" />
+                                    <label htmlFor="inputPassword">Password</label>
+                                </div>
+                                <div className="d-flex justify-content-center flex-column">
+                                    <button className="btn btn-lg btn-outline-light text-uppercase form-btn"
+                                        onClick={() => postData()}>Sign in</button>
+                                    <Link to='signup' className = "text-center mt-3 text-white">Don't have an account?</Link>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
     );
 }
 
-export default signIn;
+
+export default SignIn;
