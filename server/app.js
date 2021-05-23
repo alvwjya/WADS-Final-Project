@@ -1,4 +1,4 @@
-const express = require('express');
+/*const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const port = process.env.PORT || 4000;
@@ -37,13 +37,13 @@ app.use(require('./routes/post'));
 app.use(require('./routes/user'));
 app.use(require('./routes/search'));
 
-
+*/
 
 app.get('/', (req, res) => {
     console.log("Welcome to Redgram");
     res.send("Hello World!!!");
 })
-
+/*
 app.get('/about', customMiddleware, (req, res) => {
     console.log("about page");
     res.send("About");
@@ -51,4 +51,4 @@ app.get('/about', customMiddleware, (req, res) => {
 
 app.listen(port, () => {
     console.log("Server is running on port: ", port);
-})
+})*/
