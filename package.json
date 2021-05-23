@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://redgram-api.herokuapp.com/",
+  
   "dependencies": {
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
