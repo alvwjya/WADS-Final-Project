@@ -1,5 +1,5 @@
 {
   "scripts": {
-    "postinstall": "cd server"
+    "postinstall": "cd server && npm install"
   }
 }
