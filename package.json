@@ -1,3 +1,5 @@
-"scripts": {
-  "postinstall": "cd server"
+{
+  "scripts": {
+    "postinstall": "cd server"
+  }
 }
