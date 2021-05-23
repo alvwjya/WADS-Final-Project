@@ -11,7 +11,7 @@ router.get('/user/:id', requireLogin, (req, res) => {
     Users.findOne({ _id: req.params.id })
         .select("-password")
         .then(user => {
-            Post.find({ username: req.params.id })
+            Post.find({ username: req.params.id }).sort({ date: -1 })
                 .populate("username", "_id username")
                 .exec((err, posts) => {
                     if (err) {

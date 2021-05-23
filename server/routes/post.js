@@ -37,17 +37,6 @@ router.post('/newpost', requireLogin, (req, res) => {
         });
 });
 
-router.get('/mypost', requireLogin, (req, res) => {
-    Post.find({ username: req.Users._id }).sort({ date: 1 })
-        .populate("username", "_id username")
-        .then(posts => {
-            res.json({ posts })
-        })
-        .catch(err => {
-            console.log(err)
-        });
-});
-
 router.get('/postdetail', requireLogin, (req, res) => {
     Post.findOne({ _id: req.headers.p })
         .populate("username", "_id username")

@@ -14,13 +14,17 @@ router.get('/', (req, res) => {
 
 
 router.post('/signup', (req, res) => {
-    const { username, email, password } = req.body;
-    if (!email || !password || !username) {
+    const { username, email, password, confirmPassword} = req.body;
+    if (!email || !password || !username || !confirmPassword) {
         return res.status(422).json({ error: "Please fill in all the required data" });
     }
 
     else if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)) {
         return res.status(422).json({ error: "Invalid email address." });
+    }
+
+    if(confirmPassword != password){
+        return res.status(422).json({ error: "The password and confirmation password do not match." });
     }
 
     Users.find({ $or: [{ username: username }, { email: email }] })
