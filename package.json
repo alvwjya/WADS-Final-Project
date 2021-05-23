@@ -2,7 +2,6 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://redgram-api.herokuapp.com/",
   "dependencies": {
     "@reach/router": "^1.3.4",
     "@rpldy/upload-button": "^0.12.0",
