@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const port = process.env.PORT || 4000;
-const { MONGOURI } = process.env.MONGODB_URI || require('./keys');
+const { MONGOURI } =  require('./keys');
 
 
 const customMiddleware = (req, res, next) => {
