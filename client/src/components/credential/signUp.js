@@ -9,6 +9,7 @@ import { useHistory } from 'react-router-dom';
 function SignUp() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
     const [email, setEmail] = useState("");
     const history = useHistory();
 
@@ -21,7 +22,8 @@ function SignUp() {
             body: JSON.stringify({
                 username,
                 email,
-                password
+                password,
+                confirmPassword
             })
         }).then(res => res.json())
             .then(data => {
@@ -70,6 +72,14 @@ function SignUp() {
                                         className="form-control" placeholder="Password" required />
                                     <label htmlFor="inputPassword">Password</label>
                                 </div>
+
+                                <div className="form-label-group">
+                                    <input type="password" id="inputConfirmPassword"
+                                        value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}
+                                        className="form-control" placeholder="Confirm Password" required />
+                                    <label htmlFor="inputConfirmPassword">Confrim Password</label>
+                                </div>
+
                                 <div className="d-flex justify-content-center">
                                     <button className="btn  btn-lg btn-outline-light text-uppercase form-btn"
                                         onClick={() => postData()}>Sign up</button>

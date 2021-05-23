@@ -8,7 +8,7 @@ const { CLOUD_URI } = require('../../keys')
 
 
 const NewPost = () => {
-
+    
 
     const [title, setTitle] = useState("");
     const [caption, setCaption] = useState("");
@@ -16,7 +16,8 @@ const NewPost = () => {
     const [image, setImage] = useState("");
     const [url, setUrl] = useState("");
     const history = useHistory();
-
+    const [buttonDisabled, setButtonDisabled] = useState(true);
+    
     useEffect(() => {
         if (url) {
             fetch("/newpost", {
@@ -59,11 +60,29 @@ const NewPost = () => {
                 setUrl(data.secure_url)
             })
             .catch(err => { console.log(err) });
+    }
 
-
-
-
-
+    function uploadChecker (data){
+        const format = ["png","jpg","jpeg","gif"]
+        console.log(format.includes(data.type.split('/')[1]))
+        
+        if(data.size < 3145728){
+            
+            if(format.includes(data.type.split('/')[1])){
+                setImage(data)
+                if(title.length < 1 || tag.length < 1 || tag.includes("#") || tag.includes("@")){
+                    setButtonDisabled(true);
+                } else{
+                    setButtonDisabled(false);
+                }
+            } else{
+                setButtonDisabled(true);
+            }
+        }
+        else{
+            alert("File to large")
+            setButtonDisabled(true);
+        }
     }
 
     return (
@@ -91,19 +110,21 @@ const NewPost = () => {
                                         value={caption} onChange={(e) => setCaption(e.target.value)}
                                         placeholder="Write a caption..." rows="3"></textarea>
                                 </div>
-                                <div className="form-label-group"> Choose Photo
-                                <input type="file"
-                                        onChange={(e) => setImage(e.target.files[0])}
-                                        className="file-field input-field" placeholder="Add photo" id="uploadImage" />
+                                <div className="d-flex flex-column"> Choose Photo
+                            
+                                        <input type="file" accept=".png,.jpg,.jpeg,.gif"
+                                            onChange={(e) => uploadChecker(e.target.files[0])
+                                                //setImage(e.target.files[0])
+                                            }
+                                            className="file-field input-field" placeholder="Add photo" id="uploadImage" />
+                                            <div className="text-danger"><small>*maximum file size 3MB</small></div>
+                                            <div className="text-warning"><small>Make sure to fill title and tag first.</small></div>
                                 </div>
-
-
                                 <div className="d-flex justify-content-center">
 
-                                    <button className="btn btn-lg btn-outline-primary"
+                                    <button className="btn btn-lg btn-outline-primary" disabled = {buttonDisabled}
                                         onClick={() => postDetails()}
                                     >Post</button>
-                                    
                                 </div>
                             </div>
                         </div>
@@ -112,8 +133,6 @@ const NewPost = () => {
             </div>
         </div>
     )
-
-    
 }
 
 

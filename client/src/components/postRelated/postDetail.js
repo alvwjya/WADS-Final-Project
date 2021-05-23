@@ -171,7 +171,7 @@ function PostDetail({ match }) {
                         </div>
                         <div>
                             <text className="text-light">#</text>
-                            <text className="text-light">{item.tag}</text>
+                            <a href={`/tag/${item.tag}`} className="streched-link text-light">{item.tag}</a>
                         </div>
 
                     </div>
@@ -263,7 +263,7 @@ function PostDetail({ match }) {
                                     return (
 
                                         <div className="d-flex flex-column text-light pb-3 w-75">
-                                            <a href="#" className="link text-light"><strong>{record.username.username}</strong></a>
+                                            <a href={`/profile/${record.username._id}`} className="streched-link text-light"><strong>{record.username.username}</strong></a>
                                             <text>{record.comment}</text>
                                         </div>
 
