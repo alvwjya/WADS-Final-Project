@@ -1,10 +1,10 @@
-/*const express = require('express');
+const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const port = process.env.PORT || 4000;
-const { MONGOURI } = require('./keys');
+//const { MONGOURI } = require('./keys');
 
-
+/*
 const customMiddleware = (req, res, next) => {
     console.log("middleware executed");
     next();
@@ -48,7 +48,8 @@ app.get('/about', customMiddleware, (req, res) => {
     console.log("about page");
     res.send("About");
 })
+*/
 
 app.listen(port, () => {
     console.log("Server is running on port: ", port);
-})*/
+})
