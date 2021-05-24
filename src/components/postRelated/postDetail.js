@@ -190,7 +190,7 @@ function PostDetail({ match }) {
                     }
 
                 </div>
-                <div className="d-flex justify-content-center">
+                <div className="d-flex justify-content-center border-secondary border-bottom">
                     <div className="d-flex justify-content-center w-75">
                         <div className="w-75">{item.caption}</div>
                         <div className="d-flex flex-row w-25">
@@ -234,7 +234,11 @@ function PostDetail({ match }) {
                             e.preventDefault()
                             makeComment(e.target[0].value, item._id)
                         }}>
-                            <input type="text" placeholder="add a comment..." onfocus="this.value=''" className="w-100" />
+                            <div className="form-label-group">
+                            <input type="text" placeholder="add a comment..." className="w-100" id="inputComment"/>
+                                    <label htmlFor="inputComment">add a comment...</label>
+                                </div>
+                            
                         </form>
                     </div>
                 </div>

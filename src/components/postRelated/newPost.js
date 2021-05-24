@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useLocation } from 'react-router';
 import { Link, useHistory } from 'react-router-dom';
 import './newPost.css';
-const { CLOUD_URI } = require('../../keys')
+const { CLOUD_URI, UPLOAD_PRESET } = require('../../keys')
 
 
 
@@ -47,6 +47,7 @@ const NewPost = () => {
     }, [url])
 
     const postDetails = () => {
+        setButtonDisabled(true);
         const data = new FormData();
         data.append("file", image);
         data.append("upload_preset", "redgram-cloud");
