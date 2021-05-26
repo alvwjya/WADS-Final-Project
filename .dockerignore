@@ -1,2 +1,4 @@
-node_modueles
+Dockerfile
+.dockerignore
+node_modules
 npm-debug.log

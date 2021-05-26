@@ -1,17 +1,23 @@
-FROM node:12.16.3-alpine as build
 
-WORKDIR /app
+# Use the official lightweight Node.js 14 image.
+# https://hub.docker.com/_/node
+FROM node:14-slim
+
+# Create and change to the app directory.
+WORKDIR /usr/src/app
+
+# Copy application dependency manifests to the container image.
+# A wildcard is used to ensure copying both package.json AND package-lock.json (when available).
+# Copying this first prevents re-running npm install on every code change.
 COPY package*.json ./
-RUN npm install
-COPY . .
-RUN npm run build
 
-# Stage 1 - Serve Frontend Assets
-FROM nginx:latest
+# Install production dependencies.
+# If you add a package-lock.json, speed your build by switching to 'npm ci'.
+# RUN npm ci --only=production
+RUN npm install --only=production
 
-WORKDIR /etc/nginx
-ADD nginx.conf /etc/nginx/nginx.conf
+# Copy local code to the container image.
+COPY . ./
 
-COPY --from=build /app/build /usr/share/nginx/html
-EXPOSE 443
-CMD ["nginx", "-g", "daemon off;"]
+# Run the web service on container startup.
+CMD [ "node", "index.js" ]
