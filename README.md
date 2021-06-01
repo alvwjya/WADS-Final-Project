@@ -34,7 +34,7 @@ To run it, first you need to run
 npm install
 npm start
 ```
-You can change the port of the server by go to `app.js` and change
+The server will run at port `4000`. To check if you sucessfuly connect with MongoDB, make sure it output `Server is running on port:  4000` to the terminal. You can change the port of the server by go to `app.js` and change
 ```
 const port = process.env.PORT || <YOUR PORT>
 ```
