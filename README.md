@@ -1,4 +1,4 @@
-# Regram
+# Redgram
 A new social media platform made using Service Oriented Architecture for Web Application and Development final project.
 
 ![topLanguage](https://img.shields.io/github/languages/top/alviancode/WADS-Final-Project)
@@ -6,3 +6,43 @@ A new social media platform made using Service Oriented Architecture for Web App
 ![license](https://img.shields.io/github/license/alviancode/WADS-Final-Project)
 
 ![](https://github.com/alviancode/WADS-Final-Project/blob/master/preview/preview.png?raw=true)
+
+## Description
+### Frontend
+The frontend is created using `React` and also `Bootstrap`.
+
+## Backend
+The backend of this project is built using `Express` responsible for user authentication using JSON Web Token (JWT) and other logic of the application.
+
+## Installation
+To run this web application, make sure that you have installed `Node.jS`. To install `Node.js` you can download it from [Node.js' Site](https://nodejs.org/en/download/) and install it according to your platform.
+
+### Frontend
+This service is built using `create-react-app`. To run it, first you have to install all the dependencies using `npm install`. Aftter that, run `npm start` to start the server. The default port for the server is at port `3000`. To check it, you can open your browser and go to `localhost:3000`.
+
+### Backend
+To run this service, you need to create environment variable file `.env`. The environment variable should have the spesified variable
+```
+MONGODB_URI = [Your MongoDB URI]
+JWT_SECRET = [Some random string]
+```
+- `MONGODB_URI` is the link of your MongoDB database. You can use MongoDB Atlas or install MongoDB directly to your machine.
+- `JWT_SECRET` is some random string used to create the token. It does not have specific minimum length or other criteria.
+
+To run it, first you need to run
+```
+npm install
+npm start
+```
+You can change the port of the server by go to `app.js` and change
+```
+const port = process.env.PORT || <YOUR PORT>
+```
+
+
+## Technologies Used
+This project is made possible using
+- Node.js : JavaScript runtime.
+- React : Library used to build the frontend.
+- MongoDB Atlas : Remote MongoDB database to store all the necesary data.
+- Mongoose : Library used to connect with MongoDB.
