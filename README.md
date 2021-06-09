@@ -7,6 +7,11 @@ A new social media platform made using Service Oriented Architecture for Web App
 
 ![](https://github.com/alviancode/WADS-Final-Project/blob/master/preview/preview.png?raw=true)
 
+## Team Member and Contribution
+- Alvian Wijaya : Making the Frontend and connecting it to the backend.
+- Christy Natalia Jusman : Making the Backend espacially the authentication.
+- Davin Pratama Chandra : Making the Backend espacially the database models.
+
 ## Description
 ### Frontend
 The frontend is created using `React` and also `Bootstrap`.
