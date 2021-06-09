@@ -106,6 +106,8 @@ function NavBar() {
                         alert("User not found");
                     }
                 })
+        } else {
+            alert("Make sure you use @ to search user or # to search tag")
         }
     }
 

@@ -235,10 +235,10 @@ function PostDetail({ match }) {
                             makeComment(e.target[0].value, item._id)
                         }}>
                             <div className="form-label-group">
-                            <input type="text" placeholder="add a comment..." className="w-100" id="inputComment"/>
-                                    <label htmlFor="inputComment">add a comment...</label>
-                                </div>
-                            
+                                <input type="text" placeholder="add a comment..." className="w-100" id="inputComment" />
+                                <label htmlFor="inputComment">add a comment...</label>
+                            </div>
+
                         </form>
                     </div>
                 </div>
@@ -336,7 +336,10 @@ function NavBar() {
                         alert("User not found");
                     }
                 })
+        } else {
+            alert("Make sure you use @ to search user or # to search tag")
         }
+
     }
 
     return (

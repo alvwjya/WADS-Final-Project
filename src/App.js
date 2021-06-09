@@ -121,6 +121,8 @@ function NavBar() {
                         alert("User not found");
                     }
                 })
+        } else {
+            alert("Make sure you use @ to search user or # to search tag")
         }
     }
 
@@ -167,10 +169,10 @@ function NavBar() {
                 </div>
                 <ul className="navbar-nav  ml-2 mr-2">
                     <li className="form-inline">
-                        <button onClick={() =>{
+                        <button onClick={() => {
                             showProfile();
                         }}
-                        className="btn btn-outline-light mt-1 mb-1 mr-3" >Profile</button>
+                            className="btn btn-outline-light mt-1 mb-1 mr-3" >Profile</button>
                         <button className="btn btn-outline-danger mt-1 mb-1"
                             onClick={() => {
                                 localStorage.clear();
