@@ -30,6 +30,14 @@ A new social media platform made using Service Oriented Architecture for Web App
 <img src="https://raw.githubusercontent.com/alviancode/WADS-Final-Project/master/preview/systemArchitecture.jpg" height="400">
 </p>
 
+## Database Model
+Because we are using MongoDB for this project, here are some examples of our database models
+### Post Database Structure
+<img src="https://raw.githubusercontent.com/alviancode/WADS-Final-Project/master/preview/Post's%20Structure.png" width="600">
+
+### User Database Structure
+<img src="https://raw.githubusercontent.com/alviancode/WADS-Final-Project/master/preview/Users'%20Structure.png" width="600">
+
 ## Description
 ### Frontend
 The frontend is created using `React` and also `Bootstrap`.
