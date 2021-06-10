@@ -14,7 +14,7 @@ A new social media platform made using Service Oriented Architecture for Web App
 
 ## Use Case Diagram
 <p align="center">
-<img src="https://raw.githubusercontent.com/alviancode/WADS-Final-Project/master/preview/useCaseDiagram.png" height="500">
+<img src="https://raw.githubusercontent.com/alviancode/WADS-Final-Project/master/preview/useCaseDiagram.png" height="600">
 </p>
 
 ## Features
