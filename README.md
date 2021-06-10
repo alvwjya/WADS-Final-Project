@@ -5,7 +5,7 @@ A new social media platform made using Service Oriented Architecture for Web App
 ![commit](https://img.shields.io/github/last-commit/alviancode/WADS-Final-Project)
 ![license](https://img.shields.io/github/license/alviancode/WADS-Final-Project)
 
-![](https://github.com/alviancode/WADS-Final-Project/blob/master/preview/preview.png?raw=true)
+![image](https://github.com/alviancode/WADS-Final-Project/blob/master/preview/preview.png?raw=true)
 
 ## Team Member and Contribution
 - Alvian Wijaya : Making the Frontend and connecting it to the backend.
@@ -13,7 +13,7 @@ A new social media platform made using Service Oriented Architecture for Web App
 - Davin Pratama Chandra : Making the Backend espacially the database models.
 
 ## Use Case Diagram
-![](https://github.com/alviancode/WADS-Final-Project/blob/master/preview/useCaseDiagram.png?raw=true)
+![image](https://github.com/alviancode/WADS-Final-Project/blob/master/preview/useCaseDiagram.png?raw=true)
 
 ## Features
 - User can login or create new account (Sign Up).
@@ -21,11 +21,10 @@ A new social media platform made using Service Oriented Architecture for Web App
 - User can like/dislike other's posts.
 - User can show posts from one user.
 - User can give comment to a post.
-- User can search user/tag.
+- User can search other user or tag.
 
 ## System Architecture
-![](https://github.com/alviancode/WADS-Final-Project/blob/master/preview/systemArchitecture.jpg =300x300)
-
+![image](https://github.com/alviancode/WADS-Final-Project/blob/master/preview/systemArchitecture.jpg?raw=true)
 
 
 ## Description
