@@ -12,6 +12,22 @@ A new social media platform made using Service Oriented Architecture for Web App
 - Christy Natalia Jusman : Making the Backend espacially the authentication.
 - Davin Pratama Chandra : Making the Backend espacially the database models.
 
+## Use Case Diagram
+![](https://github.com/alviancode/WADS-Final-Project/blob/master/preview/useCaseDiagram.png?raw=true)
+
+## Features
+- User can login or create new account (Sign Up).
+- User can create new post.
+- User can like/dislike other's posts.
+- User can show posts from one user.
+- User can give comment to a post.
+- User can search user/tag.
+
+## System Architecture
+![](https://github.com/alviancode/WADS-Final-Project/blob/master/preview/systemArchitecture.jpg =300x300)
+
+
+
 ## Description
 ### Frontend
 The frontend is created using `React` and also `Bootstrap`.
@@ -54,16 +70,3 @@ This project is made possible using
 ## Demo
 To try redgram, you can go to: https://redgram-wads.herokuapp.com/
 
-## Use Case Diagram
-![](https://github.com/alviancode/WADS-Final-Project/blob/master/preview/useCaseDiagram.png?raw=true)
-
-## Features
-- User can login or create new account (Sign Up).
-- User can create new post.
-- User can like/dislike other's posts.
-- User can show posts from one user.
-- User can give comment to a post.
-- User can search user/tag.
-
-## System Architecture
-![](https://github.com/alviancode/WADS-Final-Project/blob/master/preview/systemArchitecture.jpg?raw=true)
