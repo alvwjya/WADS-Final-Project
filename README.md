@@ -13,7 +13,9 @@ A new social media platform made using Service Oriented Architecture for Web App
 - Davin Pratama Chandra : Making the Backend espacially the database models.
 
 ## Use Case Diagram
-![image](https://github.com/alviancode/WADS-Final-Project/blob/master/preview/useCaseDiagram.png?raw=true)
+<p align="center">
+<img src="https://raw.githubusercontent.com/alviancode/WADS-Final-Project/master/preview/useCaseDiagram.png" height="500">
+</p>
 
 ## Features
 - User can login or create new account (Sign Up).
@@ -24,8 +26,9 @@ A new social media platform made using Service Oriented Architecture for Web App
 - User can search other user or tag.
 
 ## System Architecture
-![image](https://github.com/alviancode/WADS-Final-Project/blob/master/preview/systemArchitecture.jpg?raw=true)
-
+<p align="center">
+<img src="https://raw.githubusercontent.com/alviancode/WADS-Final-Project/master/preview/systemArchitecture.jpg" height="400">
+</p>
 
 ## Description
 ### Frontend
