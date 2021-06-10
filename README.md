@@ -50,4 +50,6 @@ This project is made possible using
 - Node.js : JavaScript runtime.
 - React : Library used to build the frontend.
 - MongoDB Atlas : Remote MongoDB database to store all the necesary data.
-- Mongoose : Library used to connect with MongoDB.
+
+## Demo
+To try redgram, you can go to: https://redgram-wads.herokuapp.com/
