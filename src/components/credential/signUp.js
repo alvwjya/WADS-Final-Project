@@ -4,7 +4,6 @@ import './signUp.css';
 import { useHistory } from 'react-router-dom';
 
 //https://jsfiddle.net/StartBootstrap/1nu8g6e5
-//First
 
 function SignUp() {
     const [username, setUsername] = useState("");
@@ -35,12 +34,12 @@ function SignUp() {
                 }
             }).catch(err => {
                 console.log(err)
+                alert("Oops! Something went wrong.");
             })
     }
 
     return (
-        <div className="signUp fill-window">
-
+        <div className="signUp">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-10 col-xl-9 mx-auto">
