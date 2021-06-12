@@ -23,11 +23,11 @@ router.post('/signup', (req, res) => {
         return res.status(422).json({ error: "Invalid email address." });
     }
 
-    if (confirmPassword != password) {
+    else if (confirmPassword != password) {
         return res.status(422).json({ error: "The password and confirmation password do not match." });
     }
 
-    if (password.length < 6) {
+    else if (password.length < 6) {
         return res.statusCode(422).json({ error: "Password must be at least 6 characters." });
     }
 
