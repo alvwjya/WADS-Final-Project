@@ -5,7 +5,9 @@ A new social media platform made using Service Oriented Architecture for Web App
 ![commit](https://img.shields.io/github/last-commit/alviancode/WADS-Final-Project)
 ![license](https://img.shields.io/github/license/alviancode/WADS-Final-Project)
 
-![image](https://github.com/alviancode/WADS-Final-Project/blob/master/preview/RedgramPoster.png?raw=true)
+<p align="center">
+<img src="https://raw.githubusercontent.com/alviancode/WADS-Final-Project/master/preview/RedgramPoster.png" height="600">
+</p>
 
 ## Team Member and Contribution
 - Alvian Wijaya : Making the Frontend and connecting it to the backend.
@@ -34,6 +36,7 @@ A new social media platform made using Service Oriented Architecture for Web App
 Because we are using MongoDB for this project, here are some examples of our database models
 
 ### ERD
+<img src="https://raw.githubusercontent.com/alviancode/WADS-Final-Project/master/preview/ERD.jpg" width="400">
 
 ### Post Database Structure
 <img src="https://raw.githubusercontent.com/alviancode/WADS-Final-Project/master/preview/Post's%20Structure.png" width="600">
@@ -79,6 +82,11 @@ This project is made possible using
 - Node.js : JavaScript runtime.
 - React : Library used to build the frontend.
 - MongoDB Atlas : Remote MongoDB database to store all the necesary data.
+
+## API Endpoints
+<p align="center">
+<img src="https://raw.githubusercontent.com/alviancode/WADS-Final-Project/master/preview/API%20Endpoints.jpg" width="500">
+</p>
 
 ## Demo
 To try redgram, you can go to: https://redgram-wads.herokuapp.com/
