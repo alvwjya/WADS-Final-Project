@@ -5,7 +5,7 @@ A new social media platform made using Service Oriented Architecture for Web App
 ![commit](https://img.shields.io/github/last-commit/alviancode/WADS-Final-Project)
 ![license](https://img.shields.io/github/license/alviancode/WADS-Final-Project)
 
-![image](https://github.com/alviancode/WADS-Final-Project/blob/master/preview/preview.png?raw=true)
+![image](https://github.com/alviancode/WADS-Final-Project/blob/master/preview/RedgramPoster.png?raw=true)
 
 ## Team Member and Contribution
 - Alvian Wijaya : Making the Frontend and connecting it to the backend.
@@ -32,6 +32,9 @@ A new social media platform made using Service Oriented Architecture for Web App
 
 ## Database Model
 Because we are using MongoDB for this project, here are some examples of our database models
+
+### ERD
+
 ### Post Database Structure
 <img src="https://raw.githubusercontent.com/alviancode/WADS-Final-Project/master/preview/Post's%20Structure.png" width="600">
 
