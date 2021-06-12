@@ -85,13 +85,17 @@ const NewPost = () => {
     }
 
     return (
-        <div className="container-sm ">
+        <div className="container-sm pt-4">
+            <Link to="/">
+                <button type="button" className="btn btn-outline-danger btn-lg">Cancel</button>
+            </Link>
+
             <div className="row">
                 <div className="col-lg-10 col-xl-9 mx-auto">
                     <div className="card card-style flex-row my-5 bg-dark text-white">
                         <div className="card-body">
                             <h5 className="card-title text-center">New Post</h5>
-                            
+
                             <div className="form-label-group">
                                 <input type="text" id="inputTitle"
                                     value={title} onChange={(e) => setTitle(e.target.value)}

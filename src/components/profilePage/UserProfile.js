@@ -122,7 +122,7 @@ function NavBar() {
                             New Post
                         </button>
                     </Link>
-                    
+
                     <form className="mx-auto d-inline w-50 mt-1 mb-1"
                         onSubmit={(e) => {
                             e.preventDefault()
