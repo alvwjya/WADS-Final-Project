@@ -1,8 +1,10 @@
+
+
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const port = 4000;
-const { MONGOURI } = require('./keys');
+const port = process.env.PORT || 4000;
+const { MONGOURI } =  require('./keys');
 
 
 const customMiddleware = (req, res, next) => {
@@ -10,9 +12,6 @@ const customMiddleware = (req, res, next) => {
     next();
 }
 
-
-//It is used to all page
-//app.use(customMiddleware)
 mongoose.connect(MONGOURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -26,7 +25,6 @@ mongoose.connection.on('connected', () => {
 mongoose.connection.on('error', (err) => {
     console.log("error", err);
 })
-
 
 
 app.use(express.json())
@@ -43,7 +41,6 @@ app.get('/', (req, res) => {
     res.send("Hello World!!!");
 })
 
-//specific page middleware 
 app.get('/about', customMiddleware, (req, res) => {
     console.log("about page");
     res.send("About");

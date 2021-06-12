@@ -20,7 +20,7 @@ router.post('/search-users', (req, res) => {
 
 router.get('/search-tag/:query', (req, res) => {
     let tagPattern = new RegExp("^" + req.params.query)
-    Post.find({ tag: { $regex: tagPattern } })
+    Post.find({ tag: { $regex: tagPattern } }).sort({ date: -1 })
     .populate("username", "_id username")
         .then(posts => {
             res.json({ posts })

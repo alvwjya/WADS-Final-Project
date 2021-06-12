@@ -171,7 +171,7 @@ function PostDetail({ match }) {
                         </div>
                         <div>
                             <text className="text-light">#</text>
-                            <text className="text-light">{item.tag}</text>
+                            <a href={`/tag/${item.tag}`} className="streched-link text-light">{item.tag}</a>
                         </div>
 
                     </div>
@@ -190,7 +190,7 @@ function PostDetail({ match }) {
                     }
 
                 </div>
-                <div className="d-flex justify-content-center">
+                <div className="d-flex justify-content-center border-secondary border-bottom">
                     <div className="d-flex justify-content-center w-75">
                         <div className="w-75">{item.caption}</div>
                         <div className="d-flex flex-row w-25">
@@ -234,7 +234,11 @@ function PostDetail({ match }) {
                             e.preventDefault()
                             makeComment(e.target[0].value, item._id)
                         }}>
-                            <input type="text" placeholder="add a comment..." onfocus="this.value=''" className="w-100" />
+                            <div className="form-label-group">
+                                <input type="text" placeholder="add a comment..." className="w-100" id="inputComment" />
+                                <label htmlFor="inputComment">add a comment...</label>
+                            </div>
+
                         </form>
                     </div>
                 </div>
@@ -263,22 +267,12 @@ function PostDetail({ match }) {
                                     return (
 
                                         <div className="d-flex flex-column text-light pb-3 w-75">
-                                            <a href="#" className="link text-light"><strong>{record.username.username}</strong></a>
+                                            <a href={`/profile/${record.username._id}`} className="streched-link text-light"><strong>{record.username.username}</strong></a>
                                             <text>{record.comment}</text>
                                         </div>
-
-
                                     )
                                 }
-
                             })
-                        }
-                        {/*comments.username === JSON.parse(localStorage.getItem("user"))._id
-                            &&
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="red" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
-                                <rect className="btn" x="0" y="0" width="20" height="20" onClick={() => { deletePost(item._id) }}></rect>
-                            </svg>*/
                         }
                     </div>
                 </div>
@@ -342,7 +336,10 @@ function NavBar() {
                         alert("User not found");
                     }
                 })
+        } else {
+            alert("Make sure you use @ to search user or # to search tag")
         }
+
     }
 
     return (
@@ -354,7 +351,7 @@ function NavBar() {
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse_target" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <a className="navbar-brand mx-auto">
+                <a className="navbar-brand mx-auto" href="/">
                     <img src='https://res.cloudinary.com/redgram/image/upload/v1621665209/Untitled-2_c9icpj.png' height="30" />
                 </a>
                 <div className="collapse navbar-collapse" id="collapse_target">
@@ -365,8 +362,8 @@ function NavBar() {
                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                                 <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                             </svg>
-                New Post
-            </button>
+                            New Post
+                        </button>
                     </Link>
                     <form className="mx-auto d-inline w-50 mt-1 mb-1"
                         onSubmit={(e) => {

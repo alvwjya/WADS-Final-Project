@@ -62,21 +62,18 @@ function Home() {
             {NavBar()}
             {Gallery("/allpost")}
         </div>
-
-
     );
 }
 
+
 function NavBar() {
     const { state, dispatch } = useContext(UserContext)
-
 
     function refreshPage() {
         window.location.reload(true);
     }
 
     function fetchUsers(query) {
-
         if (query.charAt(0) == "#") {
             var newQuery = query.split("#")[1];
             fetch(`/search-tag/${newQuery}`, {
@@ -115,33 +112,30 @@ function NavBar() {
                     if (results.user.length > 0) {
                         const { href } = window.location;
                         window.location.href = `/profile/${results.user[0]._id}`;
-
                     }
                     else {
                         alert("User not found");
                     }
                 })
+        } else {
+            alert("Make sure you use @ to search user or # to search tag")
         }
     }
-
 
 
     function showProfile() {
         const { href } = window.location;
         window.location.href = `/profile/${JSON.parse(localStorage.getItem("user"))._id}`;
-
     }
 
     return (
-
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
             <div className="container-fluid">
-
 
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse_target" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <a className="navbar-brand mx-auto">
+                <a className="navbar-brand mx-auto" href="/">
                     <img src='https://res.cloudinary.com/redgram/image/upload/v1621665209/Untitled-2_c9icpj.png' height="30" />
                 </a>
                 <div className="collapse navbar-collapse" id="collapse_target">
@@ -152,10 +146,9 @@ function NavBar() {
                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                                 <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                             </svg>
-                New Post
-            </button>
+                            New Post
+                        </button>
                     </Link>
-
 
                     <form className="mx-auto d-inline w-50 mt-1 mb-1"
                         onSubmit={(e) => {
@@ -167,10 +160,10 @@ function NavBar() {
                 </div>
                 <ul className="navbar-nav  ml-2 mr-2">
                     <li className="form-inline">
-                        <button onClick={() =>{
+                        <button onClick={() => {
                             showProfile();
                         }}
-                        className="btn btn-outline-light mt-1 mb-1 mr-3" >Profile</button>
+                            className="btn btn-outline-light mt-1 mb-1 mr-3" >Profile</button>
                         <button className="btn btn-outline-danger mt-1 mb-1"
                             onClick={() => {
                                 localStorage.clear();
@@ -182,10 +175,8 @@ function NavBar() {
                 </ul>
             </div>
         </nav>
-
     );
 }
-
 
 
 export default App;

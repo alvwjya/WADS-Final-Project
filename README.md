@@ -55,7 +55,35 @@ The backend of this project is built using `Express` responsible for user authen
 To run this web application, make sure that you have installed `Node.jS`. To install `Node.js` you can download it from [Node.js' Site](https://nodejs.org/en/download/) and install it according to your platform.
 
 ### Frontend
-This service is built using `create-react-app`. To run it, first you have to install all the dependencies using `npm install`. Aftter that, run `npm start` to start the server. The default port for the server is at port `3000`. To check it, you can open your browser and go to `localhost:3000`.
+This service is built using `create-react-app`. To run it, first you have to install all the dependencies using `npm install`.
+
+After that, go to `newPost.js` and change
+
+```
+const postDetails = () => {
+        setButtonDisabled(true);
+        const data = new FormData();
+        data.append("file", image);
+        data.append("upload_preset", "<YOUR_UPLOAD_PRESET>");
+        data.append("cloud_name", "<YOU_CLOUD_NAME>");
+
+        fetch(CLOUD_URI, {
+            method: "POST",
+            body: data
+        }).then(res => res.json())
+            .then(data => {
+                setUrl(data.secure_url)
+            })
+            .catch(err => { console.log(err) });
+    }
+```
+
+Next, go to `keys.js` and change
+```
+CLOUD_URI:"<CLOUDINARY_URL>"
+```
+
+Aftter that, run `npm start` to start the server. The default port for the server is at port `3000`. To check it, you can open your browser and go to `localhost:3000`.
 
 ### Backend
 To run this service, you need to create environment variable file `.env`. The environment variable should have the spesified variable
@@ -82,6 +110,7 @@ This project is made possible using
 - Node.js : JavaScript runtime.
 - React : Library used to build the frontend.
 - MongoDB Atlas : Remote MongoDB database to store all the necesary data.
+- Cloudinary : Used to store all necessary images.
 
 ## API Endpoints
 <p align="center">
