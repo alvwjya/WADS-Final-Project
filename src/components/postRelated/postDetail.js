@@ -351,7 +351,7 @@ function NavBar() {
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse_target" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <a className="navbar-brand mx-auto">
+                <a className="navbar-brand mx-auto" href="/">
                     <img src='https://res.cloudinary.com/redgram/image/upload/v1621665209/Untitled-2_c9icpj.png' height="30" />
                 </a>
                 <div className="collapse navbar-collapse" id="collapse_target">
