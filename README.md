@@ -83,7 +83,7 @@ Next, go to `keys.js` and change
 CLOUD_URI:"<CLOUDINARY_URL>"
 ```
 
-Aftter that, run `npm start` to start the server. The default port for the server is at port `3000`. To check it, you can open your browser and go to `localhost:3000`.
+After that, run `npm start` to start the server. The default port for the server is at port `3000`. To check it, you can open your browser and go to `localhost:3000`.
 
 ### Backend
 To run this service, you need to create environment variable file `.env`. The environment variable should have the spesified variable
