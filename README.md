@@ -11,8 +11,8 @@ A new social media platform made using Service Oriented Architecture for Web App
 
 ## Team Member and Contribution
 - Alvian Wijaya : Making the Frontend and connecting it to the backend.
-- Christy Natalia Jusman : Making the Backend espacially the authentication.
-- Davin Pratama Chandra : Making the Backend espacially the database models.
+- Christy Natalia Jusman : Making the Backend especially the authentication.
+- Davin Pratama Chandra : Making the Backend especially the database models.
 
 ## Use Case Diagram
 <p align="center">
