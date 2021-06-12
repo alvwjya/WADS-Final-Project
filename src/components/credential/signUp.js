@@ -76,7 +76,7 @@ function SignUp() {
                                     <input type="password" id="inputConfirmPassword"
                                         value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}
                                         className="form-control" placeholder="Confirm Password" required />
-                                    <label htmlFor="inputConfirmPassword">Confrim Password</label>
+                                    <label htmlFor="inputConfirmPassword">Confirm Password</label>
                                 </div>
 
                                 <div className="d-flex justify-content-center">
