@@ -20,6 +20,11 @@ A new social media platform made using Service Oriented Architecture for Web App
 <img src="https://raw.githubusercontent.com/alviancode/WADS-Final-Project/master/preview/useCaseDiagram.png" height="600">
 </p>
 
+## Preview
+<p align="center">
+<img src="https://raw.githubusercontent.com/alviancode/WADS-Final-Project/master/preview/useCaseDiagram.png" height="600">
+</p>
+
 ## Features
 - User can login or create new account (Sign Up).
 - User can create new post.
@@ -30,7 +35,7 @@ A new social media platform made using Service Oriented Architecture for Web App
 
 ## System Architecture
 <p align="center">
-<img src="https://raw.githubusercontent.com/alviancode/WADS-Final-Project/master/preview/systemArchitecture.jpg" height="400">
+<img src="https://raw.githubusercontent.com/alviancode/WADS-Final-Project/master/preview/preview.png" height="400">
 </p>
 
 ## Database Model
