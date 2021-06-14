@@ -123,6 +123,19 @@ This project is made possible using
 <img src="https://raw.githubusercontent.com/alviancode/WADS-Final-Project/master/preview/API%20Endpoints.jpg" width="500">
 </p>
 
+## Instruction
+1. Go to [Redgram](https://redgram-wads.herokuapp.com/) website.
+2. You can sign in with your email.
+3. If you don't have an account yet, you can signup.
+4. When signing up, make sure to input valid email format and use password with minimum length of six characters.
+5. After you login, you can see the home page of Redgram.
+6. To search a user, use `@<USERNAME>` in the search bar. To search a tag, use `#<TAG>` in the search bar.
+7. You can create new post by clicking `New Post` button.
+8. Make sure to input your post title and tag first before selecting an image.
+9. The accepted image formats are `.png`,`.jpg`,`.jpeg`, and `.gif`.
+10. You can click `upload` button to publish the new post.
+11. To give comment, like, or dislike, you can click a post on the home page.
+12. To log out, you can click the `Sign Out` button at the top right corner.
+
 ## Demo
 To try redgram, you can go to: https://redgram-wads.herokuapp.com/
-
