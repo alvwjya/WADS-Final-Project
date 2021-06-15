@@ -120,7 +120,7 @@ This project is made possible using
 
 ## API Endpoints
 <p align="center">
-<img src="https://raw.githubusercontent.com/alviancode/WADS-Final-Project/master/preview/API%20Endpoints.jpg" width="500">
+<img src="https://raw.githubusercontent.com/alviancode/WADS-Final-Project/master/preview/API%20Endpoints.png" width="500">
 </p>
 
 ## Instruction
