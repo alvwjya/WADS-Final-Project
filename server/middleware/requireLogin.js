@@ -3,6 +3,7 @@ const { JWT_SECRET } = require('../keys');
 const mongoose = require('mongoose');
 const Users = mongoose.model("Users");
 
+// This is the middleware used for authentication.
 module.exports = (req, res, next) => {
     const { authorization } = req.headers;
     if (!authorization) {

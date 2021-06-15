@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const { ObjectId } = mongoose.Schema.Types;
 
+// This is the schema/structure of the mongoDB stabase for post.
 const postSchema = new mongoose.Schema({
     title: {
         type: String,

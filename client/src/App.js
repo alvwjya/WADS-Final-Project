@@ -13,7 +13,7 @@ export const UserContext = createContext();
 
 
 
-
+// This is the routing function to route the user to redirect user either to sign in or home page.
 const Routing = () => {
     const history = useHistory();
     const { state, dispatch } = useContext(UserContext)
@@ -41,10 +41,11 @@ const Routing = () => {
 }
 
 
+// This is the main function that combined everything.
 function App() {
     const [state, dispatch] = useReducer(reducer, initialState)
-    return (
 
+    return (
         <UserContext.Provider value={{ state, dispatch }}>
             <div>
                 <BrowserRouter>
@@ -56,6 +57,7 @@ function App() {
 }
 
 
+// This is the home function that combined navigation bar and gallery that show all posts.
 function Home() {
     return (
         <div>
@@ -66,6 +68,7 @@ function Home() {
 }
 
 
+// This is the navigation bar function.
 function NavBar() {
     const { state, dispatch } = useContext(UserContext)
 

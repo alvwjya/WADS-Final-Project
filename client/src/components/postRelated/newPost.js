@@ -6,7 +6,7 @@ import './newPost.css';
 const { CLOUD_URI, UPLOAD_PRESET } = require('../../keys')
 
 
-
+// This is the function to create new post.
 const NewPost = () => {
     const [title, setTitle] = useState("");
     const [caption, setCaption] = useState("");
@@ -16,6 +16,7 @@ const NewPost = () => {
     const history = useHistory();
     const [buttonDisabled, setButtonDisabled] = useState(true);
 
+    // this is to fetch to the backend.
     useEffect(() => {
         if (url) {
             fetch("/newpost", {
@@ -33,9 +34,11 @@ const NewPost = () => {
                 })
             }).then(res => res.json())
                 .then(data => {
+                    // If backend return an error, it will show an alert.
                     if (data.error) {
                         alert(data.error);
                     } else {
+                        // If backend return code 200, it will redirect to the home page.
                         history.push("/")
                     }
                 }).catch(err => {
@@ -44,6 +47,7 @@ const NewPost = () => {
         }
     }, [url])
 
+    // This is the function for uploading the image to Cloudinary.
     const postDetails = () => {
         setButtonDisabled(true);
         const data = new FormData();
@@ -61,14 +65,19 @@ const NewPost = () => {
             .catch(err => { console.log(err) });
     }
 
+    // This is the function to check the image size and also format.
     function uploadChecker(data) {
+        // This is all the supported format.
         const format = ["png", "jpg", "jpeg", "gif"]
         console.log(format.includes(data.type.split('/')[1]))
 
+        // This is to check the size of the image, the image shiuld be less than 3MB.
         if (data.size < 3145728) {
 
             if (format.includes(data.type.split('/')[1])) {
                 setImage(data)
+
+                // This is to check whether the user input a valid tag.
                 if (title.length < 1 || tag.length < 1 || tag.includes("#") || tag.includes("@")) {
                     setButtonDisabled(true);
                 } else {
@@ -79,11 +88,13 @@ const NewPost = () => {
             }
         }
         else {
+            // This is to show an alert if the image size is too large.
             alert("File to large")
             setButtonDisabled(true);
         }
     }
 
+    // This is the 'HTML' part of the new post page.
     return (
         <div className="container-sm pt-4">
             <Link to="/">

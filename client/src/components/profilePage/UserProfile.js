@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { Gallery } from '../postRelated/gallery';
 
 
+// This is the function to show the profile page.
 const Profile = () => {
     const [userProfile, setProfile] = useState([]);
     const [length, setLength] = useState([]);
@@ -12,7 +13,9 @@ const Profile = () => {
     const { id } = useParams();
     //console.log(id)
 
+    // This is used to fetch the user detail from backend.
     useEffect(() => {
+        // This call '/user/: user ID' API.
         fetch(`/user/${id}`, {
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("jwt")
@@ -46,6 +49,8 @@ const Profile = () => {
     );
 }
 
+
+// This is the navigation bar function.
 function NavBar() {
     const { state, dispatch } = useContext(UserContext)
 

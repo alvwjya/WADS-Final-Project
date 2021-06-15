@@ -7,6 +7,7 @@ const Post = mongoose.model("Post");
 const Users = mongoose.model("Users");
 
 
+// This is used to show the current user.
 router.get('/user/:id', requireLogin, (req, res) => {
     Users.findOne({ _id: req.params.id })
         .select("-password")

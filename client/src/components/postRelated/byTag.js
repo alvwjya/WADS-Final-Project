@@ -3,7 +3,7 @@ import { UserContext } from '../../App'
 import { Link, useParams } from 'react-router-dom'
 import { Gallery } from './gallery';
 
-
+// This is the main function that combined NavBar function and also the 'gallery' (the part which show the posts).
 const Tag = () => {
     const { query } = useParams();
     return (
@@ -15,6 +15,8 @@ const Tag = () => {
     )
 }
 
+
+// This is the NavBar function that return to show the navigation bar.
 function NavBar() {
 
     return (

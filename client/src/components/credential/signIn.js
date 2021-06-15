@@ -4,21 +4,26 @@ import './signIn.css';
 import { Link, useHistory } from 'react-router-dom';
 import { UserContext } from '../../App';
 
-//https://startbootstrap.com/snippets/login
-//https://jsfiddle.net/e0tbqp9L/1/
+/*
+Reference template
+https://jsfiddle.net/e0tbqp9L/1/
+*/
 
+// sign in function to connect with backend.
 const SignIn = () => {
     const { state, dispatch } = useContext(UserContext);
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
     const history = useHistory();
 
+    // Fetch '/signin' from backend
     const postData = () => {
         fetch("/signin", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
+            // Send email and password as request body.
             body: JSON.stringify({
                 email,
                 password
@@ -26,11 +31,14 @@ const SignIn = () => {
         }).then(res => res.json())
             .then(data => {
                 if (data.error) {
+                    // show alert if backend return error.
                     alert(data.error);
                 } else {
+                    // If backend return code 200, it will save jwt and user to local storage.
                     localStorage.setItem("jwt", data.token);
                     localStorage.setItem("user", JSON.stringify(data.user));
                     dispatch({ type: "USER", payload: data.user });
+                    // Next, it will go to the home page.
                     history.push("/");
                 }
             }).catch(err => {
@@ -39,6 +47,7 @@ const SignIn = () => {
             });
     }
 
+    // This is the 'HTML' part for sign in page.
     return (
         <div className='signIn'>
             <div className="container">

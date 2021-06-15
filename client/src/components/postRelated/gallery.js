@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import './gallery.css'
 
+
+// Gallery function with link as the parameter.
 export function Gallery(link) {
     const [items, setItems] = useState([]);
 
+    // Used to fetch the result from the backend
     useEffect(() => {
         fetchItems();
     }, [items]);
 
+    // Wait for all the data to be return from backend.
     const fetchItems = async () => {
         const data = await fetch(link, {
             headers: {
@@ -19,10 +23,12 @@ export function Gallery(link) {
         setItems(items.posts);
     }
 
+    // Function that calculate the 'score' based on the like vs dislike value.
     function calculateScore(likes, dislikes) {
         return likes - dislikes;
     }
 
+    // This is the 'HTML' part for gallery which is the part that show posts as cards.
     return (
         <div className="container-md">
             <div className="row mt-5">

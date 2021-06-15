@@ -3,8 +3,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './signUp.css';
 import { useHistory } from 'react-router-dom';
 
-//https://jsfiddle.net/StartBootstrap/1nu8g6e5
+/*
+Reference template
+https://jsfiddle.net/StartBootstrap/1nu8g6e5
+*/
 
+
+// Sign up function to connect with backend
 function SignUp() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -12,12 +17,14 @@ function SignUp() {
     const [email, setEmail] = useState("");
     const history = useHistory();
 
+    // Fetch '/signup' from backend
     const postData = () => {
         fetch("/signup", {
             method: "post",
             headers: {
                 "Content-Type": "application/json"
             },
+            // Send username, email, password, and confirmPassword as request body.
             body: JSON.stringify({
                 username,
                 email,
@@ -26,9 +33,11 @@ function SignUp() {
             })
         }).then(res => res.json())
             .then(data => {
+                // If backend return an error, it will show an alert.
                 if (data.error) {
                     alert(data.error);
                 } else {
+                    // If backend return code 200, it will redirect to signin page.
                     alert(data.message);
                     history.push("/signin")
                 }
@@ -38,6 +47,7 @@ function SignUp() {
             })
     }
 
+    // This is the 'HTML' part for sign up page.
     return (
         <div className="signUp">
             <div className="container">
