@@ -26,12 +26,12 @@ A new social media platform made using Service Oriented Architecture for Web App
 </p>
 
 ## Features
-- User can login or create new account (Sign Up).
-- User can create new post.
-- User can like/dislike other's posts.
-- User can show posts from one user.
-- User can give comment to a post.
-- User can search other user or tag.
+- Users can login or create new account (Sign Up).
+- Users can create new post.
+- Users can like/dislike other's posts.
+- Users can show posts from one user.
+- Users can give comments to a post.
+- Users can search other user or tag.
 
 ## System Architecture
 <p align="center">
