@@ -14,7 +14,7 @@ A new social media platform made using Service Oriented Architecture for Web App
 - Alvian Wijaya/ 2301891595 : Making the Frontend and connecting it to the backend.
 - Christy Natalia Jusman/ 2301890365 : Making the Backend especially the database models.
 - Davin Pratama Chandra/ 2301891090 : Making the Backend especially the authentication.
-<br>(please change the branch)
+<br>(please change the branch so the progress can be seen)
 
 ## Use Case Diagram
 <p align="center">
