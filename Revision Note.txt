@@ -1,0 +1,11 @@
+1. Why we choose SOA?
+Redgram implements SOA architecture because while building it, all the features are combined. In microservices, each feature is separated from each other, and they are developed independently. So, it will be easier for developer to fix it when there's an error. Not only that, in microservice, they use different data storage while in SOA, we use same data storage for the database. In here, for all of the features, we use the same data storage. 
+
+2. How we implement SSL?
+For our app, we use Heroku. So, we got a free SSL certificate from Heroku. Since we are using Heroku, it has Automated Certificate Management so that it generates the certificate automatically.
+
+3. How to implement CI with Heroku?
+To implement CI with Heroku, there several ways, but for the front end, first we have to create a repository of the project (This can be GitHub repository or Heroku Git). After that we create new application. Next under the deploy method, select GitHub and connect Heroku with the GitHub repository. After that, go to settings tab and add the necessary 'Config Vars' which for our case, we add the credentials for the database. Next, every time we push the code to the repository, it will automatically build and deploy it.
+
+4. Why are we not using refresh token?
+We are not using refresh token because we completely forgot the correct way to use JWT.
